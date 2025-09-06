@@ -138,3 +138,18 @@ hr { display: none; }
  border-radius: 6px;     /* optional: gives them smooth corners */
  margin-bottom: 12px;
 }
+/* Fixed navigation bar */
+.hero-title {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background: rgba(0, 0, 0, 0.9); /* dark background so text is visible */
+ padding: 10px 20px;
+ z-index: 1000; /* keeps it on top of other content */
+}
+
+/* Push the rest of the page down so it’s not hidden behind the fixed nav */
+body {
+ padding-top: 120px; /* adjust if your nav bar is taller/shorter */
+}
