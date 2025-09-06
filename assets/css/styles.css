@@ -153,3 +153,27 @@ hr { display: none; }
 body {
  padding-top: 120px; /* adjust if your nav bar is taller/shorter */
 }
+/* --- Fixed nav spacing --- */
+:root { --nav-h: 140px; }              /* desktop/tablet default */
+
+.hero-title{
+ position: fixed;
+ top: 0; left: 0; right: 0;
+ background: rgba(0,0,0,.92);
+ padding: 16px 20px 8px;               /* adjust as you like */
+ z-index: 1000;
+}
+
+/* push page down so content isn't hidden under the fixed nav */
+body { padding-top: var(--nav-h); }
+
+/* make the spacer taller on smaller screens where the title wraps */
+@media (max-width: 900px){
+ :root { --nav-h: 170px; }
+}
+@media (max-width: 600px){
+ :root { --nav-h: 200px; }
+}
+
+/* make sure the cover image itself isn't pulling up */
+.cover_img { margin-top: 0; display:block; }
