@@ -1,239 +1,129 @@
-:root {
- --bg: #0d0d0d;
- --ink: #e9e9e9;
- --red: #c72727;
- --paper: #f7f7f6;
- --cream: #9c9c9b;
- --dim: #b0b0b8;
+/* =========================================================
+  XBYRDX EPK — one-file stylesheet (drop-in replacement)
+  ========================================================= */
+
+/* ---------- Theme tokens ---------- */
+:root{
+ --bg:#0b0b0b;
+ --ink:#f1f1f1;
+ --muted:#c9c9c9;
+ --dim:#444;
+ --brand:#ca2a26;       /* XBYRDX red */
+ --paper:#ffffff;       /* polaroid / press card */
+ --shadow:0 18px 32px rgba(0,0,0,.45);
 }
 
-* {
- box-sizing: border-box;
+/* ---------- Reset-ish ---------- */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;height:auto;display:block}
+
+/* ---------- Page base ---------- */
+html,body{background:var(--bg); color:var(--ink); font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+h1,h2,h3{margin:0 0 .5rem 0; line-height:1.15; font-weight:800}
+h1{font-size:clamp(28px,3.2vw,42px)}
+h2{font-size:clamp(20px,2.2vw,28px)}
+a{color:var(--ink); text-decoration:none}
+a:hover{opacity:.9}
+
+/* =========================================================
+  Fixed header (title + jump nav)
+  ========================================================= */
+.site-header{
+ position:fixed; inset:0 0 auto 0; z-index:1000;
+ background:rgba(11,11,11,.92);
+ -webkit-backdrop-filter:saturate(120%) blur(2px);
+ backdrop-filter:saturate(120%) blur(2px);
+ border-bottom:1px solid rgba(255,255,255,.08);
+}
+.wrapper{max-width:1100px; margin:0 auto; padding:14px 18px}
+.hero-title h1 span{color:var(--brand)}
+.tag{margin:.25rem 0 0 0; font-size:.9rem; color:var(--muted)}
+
+.jump{display:flex; flex-wrap:wrap; gap:.6rem; margin:.6rem 0 0}
+.jump a{
+ background:transparent; color:var(--ink);
+ border:1px solid var(--ink);
+ padding:.35rem .65rem; border-radius:6px; font-size:.9rem;
+}
+.jump a:hover{background:#111}
+
+/* Push page content below fixed header */
+body{--header-h:92px; padding-top:var(--header-h)}
+@media (max-width:480px){ body{--header-h:108px} }
+
+/* Thin divider under header */
+hr{border:0; height:1px; background:rgba(255,255,255,.14); margin:8px 0 0}
+
+/* =========================================================
+  Poster hero
+  ========================================================= */
+.cover_img{
+ display:block; width:100%;
+ max-height:75vh; object-fit:cover; object-position:center top;
+ border-bottom:8px solid var(--dim);
 }
 
-html, body {
- margin: 0;
- padding: 0;
- background: var(--bg);
- color: var(--ink);
- font-family: system-ui, -apple-system, sans-serif;
- line-height: 1.6;
-}
+/* =========================================================
+  Split section (Bio & Album)
+  ========================================================= */
+.split{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:start; padding:28px 18px; max-width:1100px; margin:0 auto}
+.split_text p{margin:.25rem 0}
+.split_image{position:relative}
+.split_image img{width:100%; height:auto; display:block; box-shadow:var(--shadow)}
+@media (max-width:900px){ .split{grid-template-columns:1fr; gap:18px} }
 
-h1, h2, h3 {
- letter-spacing: 0.02em;
- margin: 0 0 0.4em;
- font-weight: 600;
-}
+/* =========================================================
+  Featured video
+  ========================================================= */
+.feature{max-width:1100px; margin:32px auto; padding:0 18px}
+.video{position:relative; aspect-ratio:16/9; background:#000; border-radius:8px; overflow:hidden; box-shadow:var(--shadow)}
+.video iframe{position:absolute; inset:0; width:100%; height:100%}
 
-h1 span {
- color: var(--red);
+/* =========================================================
+  Press — messy clippings on white cards
+  ========================================================= */
+.press{max-width:1100px; margin:32px auto; padding:0 18px}
+.clips{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:24px;
 }
+.clip{
+ background:var(--paper); color:#222; position:relative;
+ padding:18px 16px; border-radius:8px; box-shadow:var(--shadow);
+ transform-origin:center;
+}
+.clip span{font-weight:700}
+.clip:nth-child(1){transform:rotate(-1.2deg)}
+.clip:nth-child(2){transform:rotate(1deg)}
+.clip:nth-child(3){transform:rotate(-.6deg)}
+.clip:nth-child(4){transform:rotate(.8deg)}
+.clip:nth-child(5){transform:rotate(-.4deg)}
 
-h2 {
- font-size: clamp(1.2rem, 3vw, 2rem);
- color: var(--ink);
- margin-bottom: 0.5rem;
-}
+/* =========================================================
+  Photos — Polaroid masonry (white, skewed)
+  ========================================================= */
+.photos{max-width:1100px; margin:32px auto; padding:0 8px}
+.photo-grid{columns:1; column-gap:18px}
+@media (min-width:640px){ .photo-grid{columns:2} }
+@media (min-width:980px){ .photo-grid{columns:3} }
 
-p {
- margin: 0 0 1rem;
+.polaroid{
+ display:inline-block; width:100%;
+ background:var(--paper); color:#222; border-radius:6px;
+ margin:0 0 18px; padding:10px 10px 14px;
+ box-shadow:var(--shadow); break-inside:avoid;
+ transform-origin:center;
 }
+.polaroid img{width:100%; display:block; border-radius:4px}
+.polaroid:nth-child(odd){transform:rotate(-1.2deg)}
+.polaroid:nth-child(even){transform:rotate(.9deg)}
+.polaroid:nth-child(3n){transform:rotate(.4deg)}
+.polaroid:nth-child(5n){transform:rotate(-.6deg)}
 
-/* -------------------
-  Navigation / Header
-------------------- */
-.hero-title {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- background: rgba(13, 13, 13, 0.95);
- padding: 1rem;
- text-align: center;
- z-index: 1000;
- border-bottom: 2px solid var(--dim);
-}
-
-.hero-title h1 {
- font-size: clamp(1.2rem, 4vw, 2rem);
- margin-bottom: 0.5rem;
-}
-
-.hero-title .tag {
- color: var(--ink);
- font-size: 0.9rem;
- margin-bottom: 0.5rem;
-}
-
-.jump {
- display: flex;
- flex-wrap: wrap;
- gap: 0.75rem;
- justify-content: center;
-}
-
-.jump a {
- background: var(--bg);
- border: 1px solid var(--ink);
- padding: 0.25rem 0.75rem;
- border-radius: 4px;
- font-size: 0.9rem;
- color: var(--ink);
- text-decoration: none;
-}
-
-.jump a:hover {
- background: var(--red);
- border-color: var(--red);
- color: #fff;
-}
-
-/* Push content down so it doesn’t hide behind nav */
-body {
- padding-top: 150px; /* Adjust depending on nav height */
-}
-
-/* -------------------
-  Poster Image
-------------------- */
-.cover_img {
- display: block;
- width: 100%;
- height: auto;
- max-height: 72vh;
- object-fit: cover;
- margin: 0 auto 2rem auto;
- border-bottom: 8px solid var(--dim);
-}
-
-/* -------------------
-  Bio / Album Split
-------------------- */
-.split {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 2rem;
- align-items: start;
- padding: 2rem;
-}
-
-.split_text {
- font-size: 1rem;
-}
-
-@media (max-width: 900px) {
- .split {
-   grid-template-columns: 1fr;
- }
-}
-
-/* -------------------
-  Tear-off Links
-------------------- */
-.tearoffs {
- padding: 2rem;
-}
-
-.tear {
- list-style: none;
- padding: 0;
- margin: 0;
- display: flex;
- flex-wrap: wrap;
- gap: 1rem;
-}
-
-.tear li {
- background: var(--paper);
- border: 1px solid #111;
- padding: 0.5rem 1rem;
- font-weight: 700;
-}
-
-.tear li a {
- text-decoration: none;
- color: #111;
-}
-
-/* -------------------
-  Featured Video
-------------------- */
-.feature {
- margin: 2rem;
-}
-
-.video iframe {
- width: 100%;
- height: 400px;
- border: none;
-}
-
-@media (max-width: 600px) {
- .video iframe {
-   height: 240px;
- }
-}
-
-/* -------------------
-  Press Quotes
-------------------- */
-.press {
- padding: 2rem;
- margin: 2rem;
-}
-
-.clips {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 1.5rem;
-}
-
-.clip {
- background: #fff;
- color: #333;
- padding: 1rem;
- font-size: 0.95rem;
- border-left: 4px solid var(--red);
- border-radius: 6px;
- box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-/* -------------------
-  Gallery Photos
-------------------- */
-.photos {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 1.5rem;
- padding: 2rem;
-}
-
-.polaroid {
- background: #fff;
- padding: 10px;
- border-radius: 6px;
- box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.polaroid img {
- display: block;
- width: 100%;
- height: auto;
- object-fit: cover;
-}
-
-/* -------------------
-  Contact / Footer
-------------------- */
-.contact {
- padding: 2rem;
- text-align: center;
-}
-
-footer {
- padding: 2rem;
- text-align: center;
- font-size: 0.85rem;
- color: var(--cream);
-}
+/* =========================================================
+  Contact + Footer
+  ========================================================= */
+.contact{max-width:1100px; margin:42px auto; padding:0 18px}
+.footer{max-width:1100px; margin:48px auto 24px; padding:0 18px; text-align:center; color:var(--muted)}
