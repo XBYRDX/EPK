@@ -177,3 +177,13 @@ body { padding-top: var(--nav-h); }
 
 /* make sure the cover image itself isn't pulling up */
 .cover_img { margin-top: 0; display:block; }
+/* --- Fixed nav offset (make sure this is last in the file) --- */
+:root { --nav-h: 230px; }                    /* portrait phones/tablets */
+@media (min-width: 700px){ :root { --nav-h: 180px; } }
+@media (min-width: 1024px){ :root { --nav-h: 140px; } }
+
+body { padding-top: var(--nav-h) !important; }   /* force the spacer under fixed nav */
+section { scroll-margin-top: calc(var(--nav-h) + 12px); }  /* anchor jump spacing */
+
+/* (optional) if you added a border/padding to the poster earlier, remove it: */
+/* .cover_img { padding-bottom: 0; border-bottom: none; } */
