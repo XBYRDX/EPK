@@ -187,3 +187,19 @@ section { scroll-margin-top: calc(var(--nav-h) + 12px); }  /* anchor jump spacin
 
 /* (optional) if you added a border/padding to the poster earlier, remove it: */
 /* .cover_img { padding-bottom: 0; border-bottom: none; } */
+.hero-title {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background: rgba(0, 0, 0, 0.85); /* gives it a dark background */
+ z-index: 1000;
+ padding: 10px 0;
+}
+.cover_img {
+ display: block;
+ width: 100%;
+ height: auto;
+ margin-top: 120px;   /* pushes the poster image down */
+ object-fit: cover;
+}
