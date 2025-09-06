@@ -121,3 +121,20 @@ html, body { background: var(--bg); color: var(--ink); margin: 0; }
 header.cover, .cover_title { position: static !important; }
 header.cover::before, header.cover::after { content: none !important; }
 hr { display: none; }
+/* Poster Image */
+.cover_img {
+ display: block;
+ width: 100%;
+ height: auto;
+ max-height: 80vh;       /* keeps it from taking the whole screen */
+ object-fit: contain;    /* keeps the full image visible */
+ margin: 0 auto;
+}
+
+/* Gallery Images */
+.photos img {
+ max-width: 100%;
+ height: auto;
+ border-radius: 6px;     /* optional: gives them smooth corners */
+ margin-bottom: 12px;
+}
