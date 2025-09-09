@@ -55,32 +55,88 @@
  </section>
 
 <!-- Tear-off Links (Music / Social) -->
+<!-- Listen / Follow Section -->
 <section id="music" class="tearoffs">
  <h2 class="listen-follow">Listen / Follow</h2>
-
- <!-- Row of social buttons (icons + labels) -->
  <ul class="icons-row">
-   <li>
-     <a href="https://www.youtube.com/@xbyrdxxbyrdx" target="_blank" rel="noopener">
-       <span class="ico yt" aria-hidden="true"></span><span>YouTube</span>
-     </a>
-   </li>
-   <li>
-     <a href="https://open.spotify.com/user/1268427191" target="_blank" rel="noopener">
-       <span class="ico sp" aria-hidden="true"></span><span>Spotify</span>
-     </a>
-   </li>
-   <li>
-     <a href="https://www.instagram.com/xbyrdx" target="_blank" rel="noopener">
-       <span class="ico ig" aria-hidden="true"></span><span>Instagram</span>
-     </a>
-   </li>
-   <li>
-     <a href="https://www.facebook.com/share/1NZXE3TxmF/" target="_blank" rel="noopener">
-       <span class="ico fb" aria-hidden="true"></span><span>Facebook</span>
-     </a>
-   </li>
+   <li><a href="https://www.youtube.com/yourchannel" target="_blank" class="youtube"><i class="fab fa-youtube"></i> YouTube</a></li>
+   <li><a href="https://open.spotify.com/user/yourid" target="_blank" class="spotify"><i class="fab fa-spotify"></i> Spotify</a></li>
+   <li><a href="https://www.instagram.com/yourid" target="_blank" class="instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
+   <li><a href="https://www.facebook.com/yourid" target="_blank" class="facebook"><i class="fab fa-facebook"></i> Facebook</a></li>
  </ul>
+</section>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Inline Styling -->
+<style>
+.icons-row {
+ list-style: none;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 1rem;
+ justify-content: center;
+ padding: 0;
+ margin: 1rem 0;
+}
+
+.icons-row li {
+ margin: 0;
+}
+
+.icons-row a {
+ display: flex;
+ align-items: center;
+ padding: 0.6rem 1rem;
+ border-radius: 6px;
+ font-family: "Courier New", monospace;
+ font-size: 1rem;
+ text-decoration: none;
+ font-weight: bold;
+ transition: transform 0.2s;
+}
+
+.icons-row a i {
+ margin-right: 0.5rem;
+ font-size: 1.2rem;
+}
+
+/* Brand Colors */
+.icons-row a.youtube {
+ background: #ff0000;
+ color: #fff;
+}
+.icons-row a.spotify {
+ background: #1db954;
+ color: #fff;
+}
+.icons-row a.instagram {
+ background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+ color: #fff;
+}
+.icons-row a.facebook {
+ background: #1877f2;
+ color: #fff;
+}
+
+.icons-row a:hover {
+ transform: scale(1.05);
+ opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+ .icons-row {
+   flex-direction: column;
+   align-items: stretch;
+ }
+ .icons-row a {
+   justify-content: center;
+   font-size: 1.1rem;
+ }
+}
+</style>
 </section>
 </div>
 
