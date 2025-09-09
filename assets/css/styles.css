@@ -1,129 +1,181 @@
-/* =========================================================
-  XBYRDX EPK — one-file stylesheet (drop-in replacement)
-  ========================================================= */
-
-/* ---------- Theme tokens ---------- */
-:root{
- --bg:#0b0b0b;
- --ink:#f1f1f1;
- --muted:#c9c9c9;
- --dim:#444;
- --brand:#ca2a26;       /* XBYRDX red */
- --paper:#ffffff;       /* polaroid / press card */
- --shadow:0 18px 32px rgba(0,0,0,.45);
+/* =========================
+  Theme
+  ========================= */
+:root {
+ --bg: #000;
+ --ink: #e0e0e0;
+ --red: #d72626;
+ --cream: #e6e1c7;
+ --paper: #fff;
+ --dim: #777;
 }
 
-/* ---------- Reset-ish ---------- */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{max-width:100%;height:auto;display:block}
-
-/* ---------- Page base ---------- */
-html,body{background:var(--bg); color:var(--ink); font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-h1,h2,h3{margin:0 0 .5rem 0; line-height:1.15; font-weight:800}
-h1{font-size:clamp(28px,3.2vw,42px)}
-h2{font-size:clamp(20px,2.2vw,28px)}
-a{color:var(--ink); text-decoration:none}
-a:hover{opacity:.9}
-
-/* =========================================================
-  Fixed header (title + jump nav)
-  ========================================================= */
-.site-header{
- position:fixed; inset:0 0 auto 0; z-index:1000;
- background:rgba(11,11,11,.92);
- -webkit-backdrop-filter:saturate(120%) blur(2px);
- backdrop-filter:saturate(120%) blur(2px);
- border-bottom:1px solid rgba(255,255,255,.08);
-}
-.wrapper{max-width:1100px; margin:0 auto; padding:14px 18px}
-.hero-title h1 span{color:var(--brand)}
-.tag{margin:.25rem 0 0 0; font-size:.9rem; color:var(--muted)}
-
-.jump{display:flex; flex-wrap:wrap; gap:.6rem; margin:.6rem 0 0}
-.jump a{
- background:transparent; color:var(--ink);
- border:1px solid var(--ink);
- padding:.35rem .65rem; border-radius:6px; font-size:.9rem;
-}
-.jump a:hover{background:#111}
-
-/* Push page content below fixed header */
-body{--header-h:92px; padding-top:var(--header-h)}
-@media (max-width:480px){ body{--header-h:108px} }
-
-/* Thin divider under header */
-hr{border:0; height:1px; background:rgba(255,255,255,.14); margin:8px 0 0}
-
-/* =========================================================
-  Poster hero
-  ========================================================= */
-.cover_img{
- display:block; width:100%;
- max-height:75vh; object-fit:cover; object-position:center top;
- border-bottom:8px solid var(--dim);
+/* =========================
+  Base Resets
+  ========================= */
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
 }
 
-/* =========================================================
-  Split section (Bio & Album)
-  ========================================================= */
-.split{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:start; padding:28px 18px; max-width:1100px; margin:0 auto}
-.split_text p{margin:.25rem 0}
-.split_image{position:relative}
-.split_image img{width:100%; height:auto; display:block; box-shadow:var(--shadow)}
-@media (max-width:900px){ .split{grid-template-columns:1fr; gap:18px} }
-
-/* =========================================================
-  Featured video
-  ========================================================= */
-.feature{max-width:1100px; margin:32px auto; padding:0 18px}
-.video{position:relative; aspect-ratio:16/9; background:#000; border-radius:8px; overflow:hidden; box-shadow:var(--shadow)}
-.video iframe{position:absolute; inset:0; width:100%; height:100%}
-
-/* =========================================================
-  Press — messy clippings on white cards
-  ========================================================= */
-.press{max-width:1100px; margin:32px auto; padding:0 18px}
-.clips{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:24px;
+html, body {
+ background: var(--bg);
+ color: var(--ink);
+ font-family: "Courier New", Courier, monospace; /* Typewriter font */
+ line-height: 1.6;
 }
-.clip{
- background:var(--paper); color:#222; position:relative;
- padding:18px 16px; border-radius:8px; box-shadow:var(--shadow);
- transform-origin:center;
+
+h1, h2, h3 {
+ font-weight: 700;
+ margin-bottom: 0.5em;
 }
-.clip span{font-weight:700}
-.clip:nth-child(1){transform:rotate(-1.2deg)}
-.clip:nth-child(2){transform:rotate(1deg)}
-.clip:nth-child(3){transform:rotate(-.6deg)}
-.clip:nth-child(4){transform:rotate(.8deg)}
-.clip:nth-child(5){transform:rotate(-.4deg)}
 
-/* =========================================================
-  Photos — Polaroid masonry (white, skewed)
-  ========================================================= */
-.photos{max-width:1100px; margin:32px auto; padding:0 8px}
-.photo-grid{columns:1; column-gap:18px}
-@media (min-width:640px){ .photo-grid{columns:2} }
-@media (min-width:980px){ .photo-grid{columns:3} }
-
-.polaroid{
- display:inline-block; width:100%;
- background:var(--paper); color:#222; border-radius:6px;
- margin:0 0 18px; padding:10px 10px 14px;
- box-shadow:var(--shadow); break-inside:avoid;
- transform-origin:center;
+/* keep hero/title sans-serif */
+.hero-title h1,
+.hero-title p,
+.hero-title nav {
+ font-family: Arial, Helvetica, sans-serif;
 }
-.polaroid img{width:100%; display:block; border-radius:4px}
-.polaroid:nth-child(odd){transform:rotate(-1.2deg)}
-.polaroid:nth-child(even){transform:rotate(.9deg)}
-.polaroid:nth-child(3n){transform:rotate(.4deg)}
-.polaroid:nth-child(5n){transform:rotate(-.6deg)}
 
-/* =========================================================
-  Contact + Footer
-  ========================================================= */
-.contact{max-width:1100px; margin:42px auto; padding:0 18px}
-.footer{max-width:1100px; margin:48px auto 24px; padding:0 18px; text-align:center; color:var(--muted)}
+/* =========================
+  Header + Nav
+  ========================= */
+.hero-title {
+ text-align: center;
+ padding: 1rem;
+}
+
+.hero-title h1 span {
+ color: var(--red);
+}
+
+.jump {
+ margin-top: 1rem;
+}
+
+.jump a {
+ background: var(--bg);
+ border: 1px solid var(--ink);
+ padding: 0.25rem 0.75rem;
+ border-radius: 4px;
+ color: var(--ink);
+ text-decoration: none;
+ font-size: 0.9rem;
+}
+
+.jump a:hover {
+ background: var(--red);
+ border-color: var(--red);
+ color: #fff;
+}
+
+/* =========================
+  Poster + Overlay Text
+  ========================= */
+.poster-container {
+ position: relative;
+ text-align: center;
+ margin-bottom: 2rem;
+}
+
+.cover_img {
+ display: block;
+ width: 100%;
+ height: auto;
+ max-height: 72vh;
+ object-fit: cover;
+ margin: 0 auto;
+ border-bottom: 8px solid var(--dim);
+}
+
+.poster-text {
+ position: absolute;
+ bottom: 10%;
+ left: 50%;
+ transform: translateX(-50%);
+ text-align: center;
+}
+
+.poster-text .big-red {
+ font-size: clamp(2rem, 6vw, 4rem);
+ font-weight: 900;
+ color: var(--red);
+ text-transform: uppercase;
+ line-height: 1.1;
+ text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.poster-text .cream {
+ font-size: clamp(1.5rem, 4vw, 2.5rem);
+ font-weight: 700;
+ color: var(--cream);
+ text-transform: uppercase;
+ margin-top: 0.5rem;
+ text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* =========================
+  Bio / Album Split
+  ========================= */
+.split {
+ max-width: 900px;
+ margin: 2rem auto;
+ padding: 0 1rem;
+}
+
+/* =========================
+  Press Clippings
+  ========================= */
+.press {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 1rem;
+ margin: 2rem auto;
+ max-width: 1000px;
+ padding: 0 1rem;
+}
+
+.clipping {
+ background: var(--paper);
+ color: #000;
+ padding: 1rem;
+ border-radius: 6px;
+ box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+ transform: rotate(-1deg);
+}
+
+/* =========================
+  Gallery
+  ========================= */
+.photos {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr); /* 2 per row */
+ gap: 1rem;
+ max-width: 1000px;
+ margin: 2rem auto;
+ padding: 0 1rem;
+}
+
+.polaroid {
+ background: var(--paper);
+ padding: 0.5rem;
+ box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+ transform: rotate(-1deg);
+}
+
+.polaroid img {
+ width: 100%;
+ height: auto;
+ display: block;
+}
+
+/* =========================
+  Footer
+  ========================= */
+footer {
+ text-align: center;
+ padding: 2rem;
+ color: var(--dim);
+ font-size: 0.9rem;
+}
