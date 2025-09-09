@@ -333,3 +333,67 @@ a:hover {
 
 </style>
 
+/* Listen / Follow header */
+.listen-follow {
+ text-align: center;
+ font-family: "Courier New", monospace;
+ font-size: 22px;
+ font-weight: 700;
+ margin-bottom: 20px;
+ color: red;
+}
+
+/* Social Media Icons in a Row */
+.social-media {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 50px; /* space between icons */
+ margin: 30px 0;
+ flex-wrap: wrap; /* lets them wrap if needed */
+}
+
+.social-media .icon {
+ text-align: center;
+ font-family: "Courier New", monospace;
+}
+
+.social-media .icon p {
+ margin-top: 8px;
+ font-size: 15px;
+ font-weight: 700; /* bold labels under icons */
+ color: red;
+}
+
+.icon-svg {
+ width: 80px;
+ height: 80px;
+ max-width: 20vw; /* shrink on smaller screens */
+ max-height: 20vw;
+}
+
+/* Press Quote Cards */
+.press-quote {
+ font-family: "Courier New", monospace;
+ font-size: 18px;
+ font-weight: 700; /* bold for readability */
+ color: #000;
+ line-height: 1.6;
+ margin: 15px auto;
+ max-width: 700px;
+ text-align: center;
+}
+
+/* Responsive: shrink icons on very small screens */
+@media (max-width: 600px) {
+ .icon-svg {
+   width: 60px;
+   height: 60px;
+ }
+ .social-media {
+   gap: 30px;
+ }
+ .press-quote {
+   font-size: 16px;
+ }
+}
