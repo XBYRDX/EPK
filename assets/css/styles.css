@@ -285,3 +285,35 @@ section > h2{ margin-bottom:12px }
 
 /* If a stray social block appears inside/after the photos section, hide it */
 .photos .social { display: none; }
+/* Listen / Follow icons row */
+.icons-row {
+ list-style: none;
+ padding: 0;
+ margin: 1rem 0;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 1rem;
+ justify-content: center;
+}
+
+.icons-row li {
+ margin: 0;
+}
+
+.icons-row a {
+ display: inline-block;
+ padding: 0.5rem 1rem;
+ background: #111;
+ color: #fff;
+ text-decoration: none;
+ border-radius: 4px;
+ border: 1px solid #555;
+ font-family: "Courier New", monospace; /* typewriter font */
+ font-size: 1rem;
+ transition: background 0.2s ease, color 0.2s ease;
+}
+
+.icons-row a:hover {
+ background: #e53935; /* red hover */
+ color: #fff;
+}
