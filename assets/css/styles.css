@@ -375,7 +375,7 @@ a:hover {
 .press-quote {
  font-family: "Roboto Mono", monospace;
  font-size: 18px;
- font-weight: 700; /* bold */
+ font-weight: 1000; /* bold */
  color: #000;
  line-height: 1.6;
  margin: 15px auto;
