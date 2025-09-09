@@ -1,181 +1,116 @@
-/* =========================
-  Theme
-  ========================= */
-:root {
- --bg: #000;
- --ink: #e0e0e0;
- --red: #d72626;
- --cream: #e6e1c7;
- --paper: #fff;
- --dim: #777;
-}
+<!-- ===== EPK MERGED BLOCK (PASTE INTO index.html AFTER .hero-title) ===== -->
+<section id="epk-merged">
 
-/* =========================
-  Base Resets
-  ========================= */
-* {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
-}
+ <!-- Styles scoped to this block only -->
+ <style>
+   @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-html, body {
- background: var(--bg);
- color: var(--ink);
- font-family: "Courier New", Courier, monospace; /* Typewriter font */
- line-height: 1.6;
-}
+   #epk-merged { --ink:#f2f2f2; --paper:#fff; --shadow:0 18px 32px rgba(0,0,0,.45); }
+   #epk-merged * { box-sizing:border-box; }
+   #epk-merged { color: var(--ink); font-family: "Courier New", Courier, ui-monospace, monospace; }
 
-h1, h2, h3 {
- font-weight: 700;
- margin-bottom: 0.5em;
-}
+   /* ----- Poster ----- */
+   #epk-merged .poster-container{ position:relative; text-align:center; margin:0 auto; max-width:1200px; }
+   #epk-merged .cover_img{
+     display:block; width:100%; height:auto;
+     max-height:80vh; object-fit:cover; object-position:center top;
+     border-bottom:8px solid #777;
+   }
 
-/* keep hero/title sans-serif */
-.hero-title h1,
-.hero-title p,
-.hero-title nav {
- font-family: Arial, Helvetica, sans-serif;
-}
+   /* Overlay text (XBYRDX / ANTHEMS… / MAGA GIRL) */
+   #epk-merged .poster-overlay{
+     position:absolute; left:50%; transform:translateX(-50%);
+     bottom:8%; width:min(92%,1200px); text-align:center; pointer-events:none; line-height:1.05;
+   }
+   #epk-merged .poster-line{
+     font-family:'Anton', Impact, 'Arial Black', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+     text-transform:uppercase; text-shadow:0 2px 10px rgba(0,0,0,.55); margin:0;
+     letter-spacing:.01em;
+   }
+   #epk-merged .poster-line.brand{ color:#c22a26; font-weight:900; font-size:clamp(26px,7.4vw,96px); margin-bottom:.35em; }
+   #epk-merged .poster-line.title{ color:#c22a26; font-weight:900; font-size:clamp(22px,6.4vw,88px); }
+   #epk-merged .poster-line.subtitle{ color:#e6e1c7; font-weight:800; font-size:clamp(18px,4.6vw,56px); margin-top:.35em; }
+   @media (max-width:700px){ #epk-merged .poster-overlay{ bottom:10%; } }
 
-/* =========================
-  Header + Nav
-  ========================= */
-.hero-title {
- text-align: center;
- padding: 1rem;
-}
+   /* ----- Featured Video (full content width) ----- */
+   #epk-merged .feature{ max-width:1100px; margin:32px auto; padding:0 18px; }
+   #epk-merged .feature h2{ margin:0 0 12px; font-family:inherit; }
+   #epk-merged .video{ position:relative; aspect-ratio:16/9; background:#000; border-radius:8px; overflow:hidden; box-shadow:var(--shadow); }
+   #epk-merged .video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-.hero-title h1 span {
- color: var(--red);
-}
+   /* ----- Press (quote cards, messy/crooked) ----- */
+   #epk-merged .press{ max-width:1100px; margin:32px auto; padding:0 18px; }
+   #epk-merged .clippings{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+   #epk-merged .clip{
+     background:var(--paper); color:#222; padding:18px 16px; border-radius:8px;
+     box-shadow:var(--shadow); transform-origin:center; position:relative; font-size:1.05rem;
+   }
+   #epk-merged .clip:nth-child(1){ transform:rotate(-1.2deg); }
+   #epk-merged .clip:nth-child(2){ transform:rotate(1deg); }
+   #epk-merged .clip:nth-child(3){ transform:rotate(-.6deg); }
+   #epk-merged .clip:nth-child(4){ transform:rotate(.8deg); }
+   #epk-merged .clip:nth-child(5){ transform:rotate(-.4deg); }
+   #epk-merged .clip .source{ display:block; margin-top:.5rem; font-weight:700; }
 
-.jump {
- margin-top: 1rem;
-}
+   /* ----- Gallery (two columns, Polaroid look) ----- */
+   #epk-merged .photos{ max-width:1100px; margin:32px auto; padding:0 18px; }
+   #epk-merged .photos h2{ margin:0 0 12px; font-family:inherit; }
+   #epk-merged .photos-grid{
+     display:grid; grid-template-columns:repeat(2,1fr); gap:18px; align-items:start;
+   }
+   #epk-merged .polaroid{ background:#fff; color:#222; border-radius:6px; padding:10px 10px 14px; box-shadow:var(--shadow); transform-origin:center; }
+   #epk-merged .polaroid img{ width:100%; height:auto; display:block; border-radius:4px; }
+   #epk-merged .polaroid:nth-child(odd){ transform:rotate(-1.2deg); }
+   #epk-merged .polaroid:nth-child(even){ transform:rotate(.9deg); }
+ </style>
 
-.jump a {
- background: var(--bg);
- border: 1px solid var(--ink);
- padding: 0.25rem 0.75rem;
- border-radius: 4px;
- color: var(--ink);
- text-decoration: none;
- font-size: 0.9rem;
-}
+ <!-- ===== Poster with overlay ===== -->
+ <div class="poster-container">
+   <img class="cover_img" src="assets/images/image0.png" alt="Anthems For The End Times cover">
+   <div class="poster-overlay">
+     <div class="poster-line brand">XBYRDX</div>
+     <div class="poster-line title">ANTHEMS FOR THE END TIMES</div>
+     <div class="poster-line subtitle">MAGA GIRL</div>
+   </div>
+ </div>
 
-.jump a:hover {
- background: var(--red);
- border-color: var(--red);
- color: #fff;
-}
+ <!-- ===== Featured Video (full width) ===== -->
+ <section class="feature" id="music">
+   <h2>Featured Video</h2>
+   <div class="video">
+     <iframe
+       src="https://www.youtube.com/embed/Ua9wDq3ffjI"
+       title="Prizefighter — XBYRDX"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+       allowfullscreen></iframe>
+   </div>
+ </section>
 
-/* =========================
-  Poster + Overlay Text
-  ========================= */
-.poster-container {
- position: relative;
- text-align: center;
- margin-bottom: 2rem;
-}
+ <!-- ===== Press (quote cards) ===== -->
+ <section class="press" id="press">
+   <h2>Press</h2>
+   <div class="clippings">
+     <blockquote class="clip">“A cracked mirror on our current culture.” <span class="source">— Paul Hardly</span></blockquote>
+     <blockquote class="clip">“I approve his message.” <span class="source">— Donald Drumph</span></blockquote>
+     <blockquote class="clip">“Music to tap your toe and protest to.” <span class="source">— Rolling Bone</span></blockquote>
+     <blockquote class="clip">“I’ve seen Rock and Roll future… and it’s AI. In the meantime this guy will do!” <span class="source">— John Landau</span></blockquote>
+     <blockquote class="clip">“Keep us Human under Fire!” <span class="source">— Robert Christgau</span></blockquote>
+   </div>
+ </section>
 
-.cover_img {
- display: block;
- width: 100%;
- height: auto;
- max-height: 72vh;
- object-fit: cover;
- margin: 0 auto;
- border-bottom: 8px solid var(--dim);
-}
+ <!-- ===== Photos (two-column Polaroid gallery) ===== -->
+ <section class="photos" id="photos">
+   <h2>Photos</h2>
+   <div class="photos-grid">
+     <!-- Replace these src paths with your actual gallery images already in assets/images -->
+     <figure class="polaroid"><img src="assets/images/gallery-1.jpeg" alt="Gallery 1"></figure>
+     <figure class="polaroid"><img src="assets/images/gallery-2.jpeg" alt="Gallery 2"></figure>
+     <figure class="polaroid"><img src="assets/images/gallery-3.jpeg" alt="Gallery 3"></figure>
+     <figure class="polaroid"><img src="assets/images/gallery-4.jpeg" alt="Gallery 4"></figure>
+     <figure class="polaroid"><img src="assets/images/gallery-5.jpeg" alt="Gallery 5"></figure>
+     <figure class="polaroid"><img src="assets/images/gallery-6.jpeg" alt="Gallery 6"></figure>
+   </div>
+ </section>
 
-.poster-text {
- position: absolute;
- bottom: 10%;
- left: 50%;
- transform: translateX(-50%);
- text-align: center;
-}
-
-.poster-text .big-red {
- font-size: clamp(2rem, 6vw, 4rem);
- font-weight: 900;
- color: var(--red);
- text-transform: uppercase;
- line-height: 1.1;
- text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-
-.poster-text .cream {
- font-size: clamp(1.5rem, 4vw, 2.5rem);
- font-weight: 700;
- color: var(--cream);
- text-transform: uppercase;
- margin-top: 0.5rem;
- text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-/* =========================
-  Bio / Album Split
-  ========================= */
-.split {
- max-width: 900px;
- margin: 2rem auto;
- padding: 0 1rem;
-}
-
-/* =========================
-  Press Clippings
-  ========================= */
-.press {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
- gap: 1rem;
- margin: 2rem auto;
- max-width: 1000px;
- padding: 0 1rem;
-}
-
-.clipping {
- background: var(--paper);
- color: #000;
- padding: 1rem;
- border-radius: 6px;
- box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
- transform: rotate(-1deg);
-}
-
-/* =========================
-  Gallery
-  ========================= */
-.photos {
- display: grid;
- grid-template-columns: repeat(2, 1fr); /* 2 per row */
- gap: 1rem;
- max-width: 1000px;
- margin: 2rem auto;
- padding: 0 1rem;
-}
-
-.polaroid {
- background: var(--paper);
- padding: 0.5rem;
- box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
- transform: rotate(-1deg);
-}
-
-.polaroid img {
- width: 100%;
- height: auto;
- display: block;
-}
-
-/* =========================
-  Footer
-  ========================= */
-footer {
- text-align: center;
- padding: 2rem;
- color: var(--dim);
- font-size: 0.9rem;
-}
+</section>
+<!-- ===== /EPK MERGED BLOCK ===== -->
