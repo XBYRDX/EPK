@@ -149,7 +149,7 @@ a:hover {
  padding: 1rem;
  border-radius: 6px;
  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
- font-family: "Courier New", Courier, monospace;
+ font-family: "Roboto Mono", monospace;
  transform: rotate(-1.5deg);
 }
 .clip:nth-child(even) {
