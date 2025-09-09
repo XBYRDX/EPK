@@ -345,3 +345,41 @@ section > h2{ margin-bottom:12px }
  margin: .4rem 0 0;
  text-shadow: 2px 2px 6px rgba(0,0,0,.6);
 }
+/* === Social icons row === */
+.icons-row{
+ list-style:none;
+ margin:16px 0 24px;
+ padding:0;
+ display:flex;
+ flex-wrap:wrap;         /* wraps on small phones, one row on larger screens */
+ gap:14px 18px;
+ align-items:center;
+}
+.icons-row li{margin:0;padding:0}
+.icons-row a{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ padding:8px 12px;
+ border:1px solid rgba(255,255,255,.35);
+ border-radius:6px;
+ text-decoration:none;
+ background:#111;
+ color:#f1f1f1;
+ font-weight:600;
+ line-height:1;
+ transition:transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.icons-row a:hover{ transform:translateY(-1px); border-color:#fff; }
+.icons-row i{ font-size:20px; width:20px; text-align:center; }
+
+/* Brand colors */
+.icons-row a.youtube   i{ color:#FF0000; }
+.icons-row a.spotify   i{ color:#1DB954; }
+.icons-row a.instagram i{ color:#E1306C; }
+.icons-row a.facebook  i{ color:#1778F2; }
+
+/* Tablet/desktop: keep on one line */
+@media (min-width:600px){
+ .icons-row{ flex-wrap:nowrap; }
+}
