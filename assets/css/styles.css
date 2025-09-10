@@ -383,3 +383,16 @@ section > h2{ margin-bottom:12px }
 @media (min-width:600px){
  .icons-row{ flex-wrap:nowrap; }
 }
+/* --- Mobile poster cleanup --- */
+@media (max-width: 700px) {
+ /* If a poster-title overlay exists, don’t show it on phones */
+ .poster-title { display: none !important; }
+
+ /* Nudge the visible part of the image up a bit so the baked-in bottom
+    words ("ANTHEMS FOR ...") don't peek under "MAGA GIRL" */
+ .cover_img {
+   max-height: 66vh;          /* slightly shorter hero on phones */
+   object-fit: cover;
+   object-position: center 18%;
+ }
+}
